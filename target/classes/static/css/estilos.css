@@ -1,0 +1,353 @@
+/*Formatação do Corpo*/
+.corpo{
+  width: 75%;
+  margin: 0 auto;
+  background-color: white;
+}
+#subtitulo{padding: 20px 10%;}
+
+/*Formatação do Cabeçalho*/
+
+header#menu img{
+  margin: 10px;
+  margin-left: 25px;
+}
+
+span#titulo{
+  font-family: 'Cinzel', serif; 
+  font-size: 30px;
+}
+div#usuario img#img{
+	position: absolute;
+	top: 65px;
+	right: 170px;
+}
+
+div#usuario img{
+	position: absolute;
+	top: 73px;
+	right: 210px;
+}
+
+div#usuario p{
+	position: absolute;
+	top: 68px;
+	right: 300px;
+	text-transform: uppercase;
+	font-family: 'Cinzel', serif;
+	font-size: 20px;
+}
+
+/* Formatção do Menu*/
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #070338;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.topo) {
+    background-color: #111;
+}
+
+.topo {
+    background-color: #111;
+}
+
+/* Formatação do Rodape*/
+.rodape{
+	font-size: 14px;
+	margin-top: 5px;
+	text-align: center;
+	padding: 1px;
+	color: white;
+	background-color: #070338;
+}
+
+/* Formatação Slide de imagens*/
+
+* {box-sizing: border-box;}*
+body {
+  margin: 0px;
+  background-color: #333232;
+  font-family: Verdana, sans-serif;
+}
+.mySlides {display: none;}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 50%;
+  position: relative;
+  margin: auto;
+}
+
+/* Caption text */
+.text {
+  color: black;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/5 etc) */
+.numbertext {
+  color: #000;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 30%) {
+  .text {font-size: 11px}
+}
+
+
+/* Formatação Galeria de Produtos*/
+
+div.galeria {
+  display: inline-block;
+  position: relative;
+  margin: 15px;
+  width: 20%;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+div.galeria:hover {
+  transform: scale(1.1);
+}
+
+div.galeria img {
+  width: 100%;
+  height: auto;
+}
+
+.galeria a{
+	text-decoration: none;
+}
+
+.galeria span {
+	color: #22006f;
+	font-weight: 900;
+}
+
+div.descricao {
+  padding: 10px;
+  text-align: center;
+}
+
+.galeria button:hover{opacity: 1;}
+
+.sessao{
+	width: 83%;
+	margin: 0 10%;
+	min-height: 500px;;
+}
+
+/* Formatação do Formulario*/
+
+* {
+    box-sizing: border-box;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.bttn{
+	cursor: pointer;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	margin: 8px 0;
+	text-decoration: none;
+}
+
+.bttn-atlz {
+	padding: 10px 14px; 
+	background-color: #070338;
+}
+
+.bttn-excl {
+	background-color: #df0000;
+    padding: 10px 20px; 
+}
+
+.bttn1 {
+    background-color: #070338;
+    padding: 12px 20px;
+    float: right;
+
+}
+
+.bttn3{
+	background-color: #070338;
+	padding: 12px 20px;
+	width: 100%;
+}
+
+.bttn-add{
+	background-color: #070338;
+	border-radius: 100%;
+	font-size: 30px;
+	padding: 1.2% 1.5%;
+	position: fixed;
+	right: 190px;
+	bottom: 50px;
+}
+
+.bttn:hover {
+    opacity: 1;
+}
+
+.form-container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px 10%;
+}
+
+.form-col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.form-col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.form-row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .form-col-25, .form-col-75, input {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+
+
+.span {
+	text-align: center;
+	margin: 30px;
+}
+
+/*  Carrinho  */
+
+.tabela{
+	width: 80%;
+	margin: 0 10%;
+	min-height: 500px;
+}
+
+.tabela table {
+    border-collapse: collapse;
+    margin-bottom: 1%;
+    width: 100%;
+}
+
+.tabela tr {
+	border-left: 1px solid #ddd; 
+	border-right: 1px solid #ddd;
+}
+
+.tabela th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.tabela th {
+	border: none;
+    background-color: #070338;
+    color: white;
+}
+
+div#mssg{
+	position: absolute;
+	right: 45%;
+	top: 50%;
+	background-color: #c3c3c3;
+	border: 1px solid #070338;
+	border-radius: 6px;
+	text-align: center;
+	padding: 3% 5%;
+}
+

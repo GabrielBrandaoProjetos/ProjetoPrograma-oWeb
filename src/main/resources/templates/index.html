@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+  	<meta charset="utf-8">
+</head>
+<body>
+	<div class="corpo">
+		<header id="menu">
+		  	<a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+		  	<span id="titulo"> Aggressive Skates Story </span>
+		  	<div sec:authorize="hasRole('USER')" id="usuario">
+		  		<p th:text="${userNome}"></p>
+		  		<a href="/pessoa/carrinho"><img src="/img/carrinho.png" width="30" height="25" title="Carrinho de compras"/></a>
+		  		<a href="/compras/historico"><img id="img" src="/img/compras.jpg" width="40" height="40" title="Historico de compras"/></a>
+		  	</div>
+			<ul>
+		  		<li><a class="topo" href="/store">Home</a></li>
+		  		<li><a href="/produto/listar">Skates</a></li>
+		  		<li><a href="/contact">Contact</a></li>
+		  		<li><a href="/about">About</a></li>
+		  		<li style="float:right">
+		  			<a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/pessoa/login"> Login </a>
+                    <a sec:authorize="hasAnyRole('ADMIN','USER')" href="/logout">Logout</a>
+                </li>
+			</ul>
+		</header>
+
+	 	<h1 id="subtitulo" style="text-align: center;">Promoções do Dia </h1>
+
+		<div class="slideshow-container">
+			<center>
+				<div class="mySlides fade">
+				  <div class="numbertext">1 / 5</div>
+				  <a href="/produto/listar"><img src="img/USDCarbonFreeTeam2018GCSkates.jpg" style="width: 100%"></a>
+				  <div class="text">USD Carbon Free Team 2018 GC Skates R$ 1200,00</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">2 / 5</div>
+				  <a href="/produto/listar"><img src="img/RazorsKoreyProSL.jpg" style="width:100%"></a>
+				  <div class="text">Razors Korey Pro SL R$ 1200,00</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">3 / 5</div>
+				  <a href="/produto/listar"><img src="img/RemzHR2.0.jpg" style="width:100%"></a>
+				  <div class="text"> Remz HR 2.0 R$ 1200,00</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">4 / 5</div>
+				  <a href="/produto/listar"><img src="img/ValoJJRetroKhakiHempSkates.jpg" style="width:100%"></a>
+				  <div class="text"> Valo JJ Retro Khaki Hemp R$ 1200,00</div>
+				</div>
+
+				<div class="mySlides fade">
+				  <div class="numbertext">5 / 5</div>
+				  <a href="/produto/listar"><img src="img/Xsjado2.0FarewellSkates.jpg" style="width:100%"></a>
+				  <div class="text"> Xsjado 2.0 Farewell R$ 1200,00</div>
+				</div>
+			</center>
+
+		</div>
+
+		<div style="text-align:center">
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span>
+			<span class="dot"></span> 
+		</div>
+
+		<script src="/js/slide.js"></script>
+
+		<div style="margin-top: 50px">
+			<center>
+				<img src="img/logos/usd.jpg">
+				<img src="img/logos/raz.jpg">
+				<img src="img/logos/kk2.jpg">
+				<img src="img/logos/rlb.jpg">
+				<img src="img/logos/rmz.jpg">
+				<img src="img/logos/val.jpg">
+				<img src="img/logos/ssm.jpg">
+				<img src="img/logos/xsj.jpg">
+	  		</center>
+		</div>
+
+
+		<footer class="rodape">
+			<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+		</footer>
+	</div>
+</body>
+</html>

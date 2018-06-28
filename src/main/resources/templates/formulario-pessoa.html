@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+  	<meta charset="utf-8">
+</head>
+<body>
+    <div class="corpo">
+        <header>
+            <a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+            <span id="titulo"> Aggressive Skates Store</span>
+          	<ul>
+            	<li><a href="/store">Home</a></li>
+		  		<li><a href="/produto/listar">Skates</a></li>
+		  		<li><a href="/contact">Contact</a></li>
+		  		<li><a href="/about">About</a></li>
+		  		<li style="float:right"><a href="/login">Login</a></li>
+          	</ul>	
+        </header>
+        
+        <div class="form-container"style="min-height: 500px;">
+            	<h2>Formulário de Cadastro</h2>
+            	<p>Preencha todos os campos.</p><br><br>
+            	
+            	<div id="mssg" th:if="${!#strings.isEmpty(mensagem)}">
+            		<div  th:text="${mensagem}"></div>
+            	</div>
+            	
+			  <form action="/pessoa/salvar" method="post" id="formulario" th:object="${pessoa}">
+			  <input type="hidden" th:field="*{id}">
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Nome</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input type="text" name="nome" placeholder="Seu nome.." th:field="*{nome}" required>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Cpf</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input type="text" name="cpf" placeholder="Seu cpf.." th:field="*{cpf}" required>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Data de Nascimento</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input class="data" type="date" name="dataNascimento" th:field="*{dataNascimento}" required>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Endereço</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input type="text" name="endereco" placeholder="Seu endereço.." th:field="*{endereco}" required>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Login</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input type="text" name="login" placeholder="Escolha um login.." th:field="*{login}" required>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Senha</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input id="s1" type="password" name="senha" placeholder="Escolha uma senha.." th:field="*{senha}" required>
+			      </div>
+			    </div>
+			    <!--div class="form-row">
+			      <  div class="form-col-25">
+			        <label>Confirmar Senha</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input id="s2" type="password" placeholder="Digite a senha novamente.." required>
+			      </div>
+			    </div>-->
+			    <div class="form-row">
+			     <button id="botao" class="bttn bttn1" type="submit" >Submit</button>
+			    </div>
+			  </form>
+		</div>
+		
+        <footer class="rodape">
+        	<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+        </footer>
+    </div>
+    <script>
+    	var x = document.getElementById("mssg");
+   		var y;  	
+    	y = setTimeout(function(){
+    		x.style.display = "none";	
+    	}, 3000);
+    	
+    </script>
+</body>
+</html>

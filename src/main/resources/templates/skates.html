@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+  	<meta charset="utf-8">
+</head>
+<body>
+    <div class="corpo">
+        <header id="menu">
+            <a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+            <span id="titulo"> Aggressive Skates Store</span>
+            <div sec:authorize="hasRole('USER')" id="usuario">
+		  		<p th:text="${userNome}"></p>
+		  		<a href="/pessoa/carrinho"><img src="/img/carrinho.png" width="30" height="25" title="Carrinho de compras"/></a>
+		  		<a href="/compras/historico"><img id="img" src="/img/compras.jpg" width="40" height="40" title="Historico de compras"/></a>
+		  	</div>
+            <ul>
+                <li><a href="/store">Home</a></li>
+                <li><a class="topo" href="/produto/listar">Skates</a></li>
+		  		<li><a href="/contact">Contact</a></li>
+		  		<li><a href="/about">About</a></li>
+		  		<li style="float:right">
+		  			<a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/pessoa/login"> Login </a>
+                    <a sec:authorize="hasAnyRole('ADMIN','USER')" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </header>
+		<h1 id="subtitulo">Aggressive Skates</h1>
+        <section class="sessao" style="min-height: 500px;">
+                <div class="galeria" th:each="produto:${todosOsProdutos}">
+                	<a target="_blank" th:href="@{'/imagem/'+${produto.id}+.jpg}" >
+                    	<img th:src="@{'/imagem/'+${produto.id}+.jpg}" width="350" height="250">
+                  	</a>
+                  	<div class="descricao" th:text = "${produto.nome}"></div>
+                  	<span th:text = "'R$ '+${produto.valor}"></span><br>
+                  	<a sec:authorize="hasRole('ADMIN')" th:href="@{/produto/{id}(id = ${produto.id})}">
+                  		<button class="bttn bttn-atlz" type="submit">Atualizar</button>
+                  	</a>
+                  	<a sec:authorize="hasRole('ADMIN')" th:href="@{/produto/excluir/{id}(id = ${produto.id})}">
+                  		<button class="bttn bttn-excl" type="submit">Excluir</button>
+                  	</a>
+                  	<a sec:authorize="!hasRole('ADMIN')" th:href="@{/pessoa/addcarrinho/{id}(id = ${produto.id})}"><button class="bttn bttn3">Comprar</button></a>
+                </div>
+        </section>
+        <a href="/produto/addproduto"><button class="bttn bttn-add">+</button></a>
+		<br><br><br>
+        <footer class="rodape">
+          	<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+        </footer>
+    </div>
+</body>
+</html>

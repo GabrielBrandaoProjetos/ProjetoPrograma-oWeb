@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+  <link rel="stylesheet" href="/css/jquery-ui.css">
+  <meta charset="utf-8">
+  <script src="/js/jquery-1.12.4.js"></script>
+  <script src="/js/jquery-ui.js"></script>
+  <script type="text/javascript" src="/js/jquery.mask.min.js"></script>
+  <script type="text/javascript" src="/js/mascara.js"></script>
+  <script>
+    function validar(){
+      nome = $("#nome").val();
+      email = $("#email").val();
+      tel = $("#phone").val();
+      msg = $("#msg").val();
+      if(nome != "" && email != "" && tel != "" && msg!=""){
+        $("#opener").removeAttr("disabled");
+      }
+    }
+
+    $(document).ready(function(){
+      $("#opener").click(function(){
+        $("#dialog").dialog({
+            show: {
+              effect: "blind",
+              duration: 1000
+            },
+            hide: {
+              effect: "fest",
+              duration: 1000
+            }
+          });
+        $("#nome").val("");
+        $("#email").val("");
+        $("#phone").val("");
+        $("#msg").val("");
+        $("#opener").attr("disabled", "disabled");
+      });
+    });
+  </script>
+</head>
+<body>
+    <div class="corpo">
+        <div id="dialog" title="Aggressive Skates" style="display: none;" >
+            <p>Sua mensagem foi enviada<br>Responderemos assim que possível<br>Obrigado!</p>
+        </div>
+        <header id="menu">
+            <a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+            <span id="titulo"> Aggressive Skates Store</span>
+            <div sec:authorize="hasRole('USER')" id="usuario">
+		  		<p th:text="${userNome}"></p>
+		  		<a href="/pessoa/carrinho"><img src="/img/carrinho.png" width="30" height="25" title="Carrinho de compras"/></a>
+		  		<a href="/compras/historico"><img id="img" src="/img/compras.jpg" width="40" height="40" title="Historico de compras"/></a>
+		  	</div>
+          	<ul>
+            	<li><a href="/store">Home</a></li>
+		  		<li><a href="/produto/listar">Skates</a></li>
+		  		<li><a class="topo" href="/contact">Contact</a></li>
+		  		<li><a href="/about">About</a></li>
+		  		<li style="float:right">
+		  			<a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/pessoa/login"> Login </a>
+                    <a sec:authorize="hasAnyRole('ADMIN','USER')" href="/logout">Logout</a>
+                </li>
+          	</ul>	
+        </header>
+
+        <div class="form-container"style="min-height: 500px;">
+            	<h2>Formulário de contato</h2>
+            	<p>Preencha os campos abaixo e entraremos em contato com você.</p>
+			  <form action="" method="post">
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Nome</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input onchange="validar()" type="text" id="nome" placeholder="Seu nome.." required=“required”>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>E-mail</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input onchange="validar()" type="text" placeholder="exemplo@exemplo.com" id="email" required=“required”>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Telefone</label>
+			      </div>
+			      <div class="form-col-75">
+			        <input onchange="validar()" type="text" id="phone" pattern="\([0-9]{2}\) [0-9]{1}-[0-9]{4,6}-[0-9]{3,4}$" placeholder="Ex: (88)9-9999-9999" required=“required”>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			    </div>
+			    <div class="form-row">
+			      <div class="form-col-25">
+			        <label>Mensagem</label>
+			      </div>
+			      <div class="form-col-75">
+			        <textarea id="msg" placeholder="Escreva sua mensagem..." style="height:200px"></textarea>
+			      </div>
+			    </div>
+			    <div class="form-row">
+			     <button class="bttn bttn1" id="opener" type="submit" >Submit</button>
+			    </div>
+			  </form>
+			</div>
+
+        <footer class="rodape">
+        	<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+        </footer>
+    </div>
+</body>
+</html>

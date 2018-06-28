@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+	<link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<div class="corpo">
+		<header id="menu">
+			<a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+  			<span id="titulo"> Aggressive Skates Store</span>
+  			<div sec:authorize="hasRole('USER')" id="usuario">
+		  		<p th:text="${userNome}"></p>
+		  		<a href="/pessoa/carrinho"><img src="/img/carrinho.png" width="30" height="25" title="Carrinho de compras"/></a>
+		  		<a href="/compras/historico"><img id="img" src="/img/compras.jpg" width="40" height="40" title="Historico de compras"/></a>
+		  	</div>
+		  <ul>
+		      	<li><a href="/store">Home</a></li>
+		  		<li><a href="/produto/listar">Skates</a></li>
+		  		<li><a href="/contact">Contact</a></li>
+		  		<li><a class="topo" href="/about">About</a></li>
+		  		<li style="float:right">
+		  			<a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/pessoa/login"> Login </a>
+                    <a sec:authorize="hasAnyRole('ADMIN','USER')" href="/logout">Logout</a>
+                </li>
+		  </ul>	
+		</header>
+		<section style="min-height: 500px;">
+		<center>
+				<h1 id="subtitulo">Aggressive Skates Store</h1>
+
+				<p style="text-align: justify; width: 50%;">
+					Aggressive Sketes Story é uma loja de patins na modalidade <i>aggressve</i> com o objetivo de fornecer os melhores produtos do mercado, mantendo sempre nossos estoques atualizados com o que a de mais novo no mundo dos patins e 	disponibilizando as marcas mais famosas usadas pelos mais diversos profisionais no mundo todo. Na Aggressive skates Story você ainda conta com preços incríveis e várias promoções que te ajudaram na hora de escolher onde comprar o seu patins.<br><br>
+
+					Agradecimentos: Gabriel Brandão
+				</p>
+		</center>
+		</section>
+		<footer class="rodape">
+			<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+		</footer>
+	</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+	<title>Aggressive Skates Store</title>
+	<link rel="stylesheet" type="text/css" href="/css/estilos.css">
+  	<link href="https://fonts.googleapis.com/css?family=Cinzel:700" rel="stylesheet">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<meta charset="utf-8">
+</head>
+<body>
+    <div class="corpo">
+        <header id="menu">
+            <a href="/store"><img src="/img/logo.png" width="142" height="96"></a>
+            <span id="titulo"> Aggressive Skates Store</span>
+            <div sec:authorize="hasRole('USER')" id="usuario">
+		  		<p th:text="${userNome}"></p>
+		  		<a href="/pessoa/carrinho"><img src="/img/carrinho.png" width="30" height="25" title="Carrinho de compras"/></a>
+		  		<a href="/compras/historico"><img id="img" src="/img/compras.jpg" width="40" height="40" title="Historico de compras"/></a>
+		  	</div>
+            <ul>
+                <li><a href="/store">Home</a></li>
+				<li><a href="/produto/listar">Skates</a></li>
+		  		<li><a href="/contact">Contact</a></li>
+		  		<li><a href="/about">About</a></li>
+		  		<li style="float:right">
+		  			<a sec:authorize="!hasAnyRole('ADMIN','USER')" href="/pessoa/login"> Login </a>
+                    <a sec:authorize="hasAnyRole('ADMIN','USER')" href="/logout">Logout</a>
+                </li>
+            </ul>
+        </header>
+        <h2 id="subtitulo">Carrinho de Compras</h2>
+        <div class="tabela">
+			<table>
+				<tr>
+					<th>Produto</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr th:each="produto:${todosOsProdutos}">
+					<td><img th:src="@{'/imagem/'+${produto.id}+.jpg}" width="50" height="50"></td>
+					<td th:text="${produto.nome}"></td>
+					<td th:text="${produto.valor}"></td>
+					<td><a th:href="@{/pessoa/excluirproduto/{id}(id = ${produto.id})}"><button class="bttn bttn-atlz">Remover</button></a></td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td></td>
+					<td th:text="${valorTotal}"></td>
+					<td></td>
+				</tr>
+				
+			</table>
+			<a href="/compras/finalizar"><button class="bttn bttn1">Finalizar Compra</button></a>
+			
+        </div>
+		<br><br><br>
+        <footer class="rodape">
+          	<p>Copyright &copy; 05/2018 - Gabriel Brandão - Tel:(88)99910-2324</p>
+        </footer>
+    </div>
+</body>
+</html>
